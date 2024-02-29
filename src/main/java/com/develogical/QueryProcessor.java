@@ -44,6 +44,12 @@ public class QueryProcessor {
                 return Integer.toString(current);
             }
         }
+    } else if (getLowerCase(query).contains("multiplied")) {
+        String[] parts = getLowerCase(query).split(" ");
+        int first = Integer.parseInt(parts[2]);
+        String secondNumberWithoutQuestion = parts[5].replace("?", "");
+        int second = Integer.parseInt(secondNumberWithoutQuestion);
+        return Integer.toString(first * second);
     }
     return "";
   }

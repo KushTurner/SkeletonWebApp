@@ -40,4 +40,9 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 1, 2, 3, 4?"), containsString("1"));
   }
 
+  @Test
+  public void knowsHowToMultiply() {
+    assertThat(queryProcessor.process("What is 3 multiplied by 64?"), containsString("192"));
+  }
+
 }
