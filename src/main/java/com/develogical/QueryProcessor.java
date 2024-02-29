@@ -59,9 +59,35 @@ public class QueryProcessor {
         String secondNumberWithoutQuestion = parts[4].replace("?", "");
         int second = Integer.parseInt(secondNumberWithoutQuestion);
         return Integer.toString(first - second);
+    } else if (getLowerCase(query).contains("primes")) {
+        String[] parts = getLowerCase(query).split(":");
+        String[] numbers = parts[1].split(",");
+        List<Integer> primes = new ArrayList<>();
+        for (String number : numbers) {
+            if (number.contains("?")) {
+                number = number.replace("?", "");
+            }
+            int current = Integer.parseInt(number.trim());
+            if (isPrime(current)) {
+                primes.add(current);
+            }
+        }
+        return primes.toString();
     }
     return "";
   }
+
+    private boolean isPrime(int current) {
+        if (current <= 1) {
+            return false;
+        }
+        for (int i = 2; i < current; i++) {
+            if (current % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     private boolean isSquareAndCube(int current) {
         return Math.sqrt(current) == Math.cbrt(current);

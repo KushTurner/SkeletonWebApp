@@ -50,4 +50,9 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("What is 3 minus 64?"), containsString("-61"));
   }
 
+  @Test
+  public void knowsThePrimeNumbers() {
+    assertThat(queryProcessor.process("Which of the following numbers are primes: 99, 75, 55, 59, 80?"), containsString("59"));
+  }
+
 }
