@@ -17,6 +17,17 @@ public class QueryProcessor {
         int first = Integer.parseInt(parts[2]);
         int second = Integer.parseInt(parts[4]);
         return Integer.toString(first + second);
+    } else if (getLowerCase(query).contains("largest")) {
+        String[] parts = getLowerCase(query).split(":");
+        String[] numbers = parts[1].split(",");
+        int max = Integer.MIN_VALUE;
+        for (String number : numbers) {
+            int current = Integer.parseInt(number.trim());
+            if (current > max) {
+                max = current;
+            }
+        }
+        return Integer.toString(max);
     }
     return "";
   }

@@ -30,4 +30,9 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("what is 5 plus 3"), containsString("8"));
   }
 
+  @Test
+  public void knowsFollowingLargestNumber() {
+    assertThat(queryProcessor.process("which of the following numbers is the largest: 1, 2, 3, 4"), containsString("4"));
+  }
+
 }
