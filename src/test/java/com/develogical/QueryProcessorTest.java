@@ -45,4 +45,9 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("What is 3 multiplied by 64?"), containsString("192"));
   }
 
+  @Test
+  public void knowsHowToMinus() {
+    assertThat(queryProcessor.process("What is 3 minus 64?"), containsString("-61"));
+  }
+
 }

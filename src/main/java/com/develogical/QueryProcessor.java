@@ -1,5 +1,8 @@
 package com.develogical;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QueryProcessor {
 
   public String process(String query) {
@@ -50,6 +53,12 @@ public class QueryProcessor {
         String secondNumberWithoutQuestion = parts[5].replace("?", "");
         int second = Integer.parseInt(secondNumberWithoutQuestion);
         return Integer.toString(first * second);
+    } else if (getLowerCase(query).contains("minus")) {
+        String[] parts = getLowerCase(query).split(" ");
+        int first = Integer.parseInt(parts[2]);
+        String secondNumberWithoutQuestion = parts[4].replace("?", "");
+        int second = Integer.parseInt(secondNumberWithoutQuestion);
+        return Integer.toString(first - second);
     }
     return "";
   }
