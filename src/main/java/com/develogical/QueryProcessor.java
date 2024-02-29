@@ -23,6 +23,9 @@ public class QueryProcessor {
         String[] numbers = parts[1].split(",");
         int max = Integer.MIN_VALUE;
         for (String number : numbers) {
+            if (number.contains("?")) {
+                number = number.replace("?", "");
+            }
             int current = Integer.parseInt(number.trim());
             if (current > max) {
                 max = current;

@@ -32,7 +32,7 @@ public class QueryProcessorTest {
 
   @Test
   public void knowsFollowingLargestNumber() {
-    assertThat(queryProcessor.process("which of the following numbers is the largest: 1, 2, 3, 4"), containsString("4"));
+    assertThat(queryProcessor.process("which of the following numbers is the largest: 1, 2, 3, 4?"), containsString("4"));
   }
 
 }
