@@ -15,7 +15,8 @@ public class QueryProcessor {
     } else if (getLowerCase(query).contains("plus")) {
         String[] parts = getLowerCase(query).split(" ");
         int first = Integer.parseInt(parts[2]);
-        int second = Integer.parseInt(parts[4]);
+        String secondNumberWithoutQuestion = parts[4].replace("?", "");
+        int second = Integer.parseInt(secondNumberWithoutQuestion);
         return Integer.toString(first + second);
     } else if (getLowerCase(query).contains("largest")) {
         String[] parts = getLowerCase(query).split(":");
