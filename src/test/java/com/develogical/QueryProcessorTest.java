@@ -22,7 +22,7 @@ public class QueryProcessorTest {
 
   @Test
   public void knowsWhatYourNameIs() throws Exception {
-    assertThat(queryProcessor.process("What is your name"), containsString("KushTeam"));
+    assertThat(queryProcessor.process("What is your name?"), containsString("KushTeam"));
   }
 
 }
