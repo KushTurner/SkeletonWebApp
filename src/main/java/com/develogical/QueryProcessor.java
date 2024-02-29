@@ -32,11 +32,27 @@ public class QueryProcessor {
             }
         }
         return Integer.toString(max);
+    } else if (getLowerCase(query).contains("square") && getLowerCase(query).contains("cube")) {
+        String[] parts = getLowerCase(query).split(":");
+        String[] numbers = parts[1].split(",");
+        for (String number : numbers) {
+            if (number.contains("?")) {
+                number = number.replace("?", "");
+            }
+            int current = Integer.parseInt(number.trim());
+            if (isSquareAndCube(current)) {
+                return Integer.toString(current);
+            }
+        }
     }
     return "";
   }
 
-  private static String getLowerCase(String query) {
+    private boolean isSquareAndCube(int current) {
+        return Math.sqrt(current) == Math.cbrt(current);
+    }
+
+    private static String getLowerCase(String query) {
     return query.toLowerCase();
   }
 }
